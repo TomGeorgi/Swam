@@ -1,2 +1,2 @@
 # Swam
-GPU Project for the lecture 'GPU-Programming' on the HTWG at Constance
+GPU Project for the lecture 'GPU-Programming' at the HTWG Constance
