@@ -3,7 +3,7 @@ GPU Project for the lecture 'GPU-Programming' at the HTWG Constance
 
 ## Project Plan
 
-* Fische schwimmen in bestimmten Bereich (random oder auf vorgegebender Strecke im Kreis) als Schwarm
+* Fische schwimmen in bestimmten 3 dimensionalen Bereich (random oder auf vorgegebender Strecke im Kreis) als Schwarm
   * 1 Fisch gibt Richtung und Geschwindigket vor
   * alle Folgen der Strecke und halten Abstand zu anderen Fischen
   * wie funktioniert das in der Natur?
@@ -13,3 +13,4 @@ GPU Project for the lecture 'GPU-Programming' at the HTWG Constance
   * schwimmt nur durch
 * Fische weichen aus, bleiben aber im Schwarm
 * Wasser durch blauen Filter dargestellt
+  * optional je nach Zeit: Wasser simulieren (Strömungen/Wellen/Reflektionen)
