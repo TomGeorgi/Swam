@@ -7,3 +7,6 @@
 #include "macros.h"
 
 int add(int a, int b);
+
+void multiply();
+

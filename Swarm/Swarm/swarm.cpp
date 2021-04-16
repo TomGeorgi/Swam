@@ -13,7 +13,9 @@ int main()
 		b = 2;
 
 	std::cout << device << std::endl;
-	std::cout << "" << a << " + " << b << " = " << add(a, b);
+	std::cout << "" << a << " + " << b << " = " << add(a, b) << std::endl;
+
+	multiply();
 
 	return 0;
 }
