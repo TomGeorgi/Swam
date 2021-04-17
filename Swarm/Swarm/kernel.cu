@@ -7,8 +7,6 @@ __global__ void add( int a , int b, int* sum )
 
 __global__ void multiplyVM(double* matrix, double* vector, int rows, int cols, double* result)
 {
-	printf("rows %i, cols %i\n", rows, cols);
-	for (int c = 0; c < cols; c++) printf("%d\n", vector[c]);
 	for (int r = 0; r < rows; r++)
 	{
 		double tmp = 0;
@@ -16,16 +14,10 @@ __global__ void multiplyVM(double* matrix, double* vector, int rows, int cols, d
 		{
 			double m_val = matrix[(r * cols) + c];
 			double v_val = vector[c];
-			printf("m_val = %d\n", m_val);
-			printf("v_val = %d\n", v_val);
-			printf("r = %i, c = %i\n", r, c);
 			tmp += m_val * v_val;
-			printf("tmp = %d\n", tmp);
 		}
 		result[r] = tmp;
 	}
-
-	printf("multiplying finis\n");
 }
 
 int add(int a, int b)
@@ -63,24 +55,28 @@ void multiply()
 	double* cudaResult = NULL;
 
 	// Allocate Space
-	std::cout << "allocate memory" << std::endl;
 	CUDA_CHECK(cudaMalloc((void**)&cudaMatrix, sizeof(double) * rows * cols));
 	CUDA_CHECK(cudaMalloc((void**)&cudaVector, sizeof(double) * cols));
 	CUDA_CHECK(cudaMalloc((void**)&cudaResult, sizeof(double) * rows));
 
-	std::cout << "memcpy to dev" << std::endl;
+	// Copy from Host to Device
 	CUDA_CHECK(cudaMemcpy(cudaMatrix, A[0], sizeof(double) * rows * cols, cudaMemcpyHostToDevice));
-	std::cout << "memcpy to dev" << std::endl;
 	CUDA_CHECK(cudaMemcpy(cudaVector, hostVector, sizeof(double) * cols, cudaMemcpyHostToDevice));
 
+	// Run Calculation on Device
 	multiplyVM<<<1, 1>>>(cudaMatrix, cudaVector, rows, cols, cudaResult);
+
+	// Copy Result from Device to host
 	CUDA_CHECK(cudaMemcpy(hostResult, cudaResult, sizeof(double) * rows, cudaMemcpyDeviceToHost));
 
-	cout << "result:" << endl; // [20, 20]
+	// Print out the Result
+	cout << "result:" << endl; // [20, 22]
 	for (int i = 0; i < rows; i++)
 	{
 		cout << hostResult[i] << endl;
 	}
+
+	// Free Space
 	CUDA_CHECK(cudaFree(cudaVector));
 	CUDA_CHECK(cudaFree(cudaMatrix));
 	CUDA_CHECK(cudaFree(cudaResult));
