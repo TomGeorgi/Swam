@@ -1,0 +1,1 @@
+xcopy "Shader\*" "..\..\bin\" /I /Y

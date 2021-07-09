@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src\include">
+      <UniqueIdentifier>{8d04e3d1-07ea-45f0-b9da-661e60512c17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\source">
+      <UniqueIdentifier>{51690c1a-60d1-4a1a-8b3f-e31be71cecdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dep">
+      <UniqueIdentifier>{efb499de-0717-46d1-b1b0-01e5af52f50f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\config.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glfw3.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glfw3native.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\wgl_platform.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\win32_platform.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="dependencies\glext.h">
+      <Filter>dep</Filter>
+    </ClInclude>
+    <ClInclude Include="dependencies\glxext.h">
+      <Filter>dep</Filter>
+    </ClInclude>
+    <ClInclude Include="dependencies\wglext.h">
+      <Filter>dep</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\clipboard.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\context.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gamma.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\init.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\input.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\joystick.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\monitor.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\time.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\wgl_context.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\win32_clipboard.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\win32_gamma.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\win32_init.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\win32_joystick.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\win32_monitor.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\win32_time.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\win32_window.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\window.c">
+      <Filter>src\source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

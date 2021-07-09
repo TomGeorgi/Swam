@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="src\window">
+      <UniqueIdentifier>{5d60d491-4031-4db1-9b68-94591bc429d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\error">
+      <UniqueIdentifier>{79073f8a-13c5-4e3f-a5d5-0c38eb11d7e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\math">
+      <UniqueIdentifier>{c2cf4e25-0899-4566-a436-70d2a621b405}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Window.cpp">
+      <Filter>src\window</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Camera.cpp">
+      <Filter>src\window</Filter>
+    </ClCompile>
+    <ClCompile Include="source\OpenGLFrameworkException.cpp">
+      <Filter>src\error</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DegreeAngle.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Window.hpp">
+      <Filter>src\window</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CameraType.hpp">
+      <Filter>src\window</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Camera.hpp">
+      <Filter>src\window</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OpenGLFrameworkException.hpp">
+      <Filter>src\error</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DegreeAngle.hpp">
+      <Filter>src\math</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

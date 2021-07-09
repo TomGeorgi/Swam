@@ -1,21 +1,37 @@
-#include <iostream>
+#include "Window.hpp"
 
-#include "cuda_runtime.h"
-#include "device_launch_parameters.h"
+#include <vector>
+#include <fstream>
+#include <sstream>
 
-#include "CudaDevice.h"
-#include "kernel.cuh"
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
-int main()
+
+int main( int _argc, char** _argv )
 {
-	CudaDevice device = CudaDevice(0);
-	int a = 2, 
-		b = 2;
+	// Create / Get Window instance
+	Window* window = Window::getInstance();
 
-	std::cout << device << std::endl;
-	std::cout << "" << a << " + " << b << " = " << add(a, b) << std::endl;
+	window->open( "Fish Swarm", 1200, 800 );
+	window->setEyePoint( glm::vec4( 0.0f, 0.0f, 500.0f, 1.0f ) );
+	window->setActive();
 
-	multiply();
+	initializeOpenGL()
 
-	return 0;
+	clock_t lastInterval = clock();
+
+	while ( window->isOpen() )
+	{
+		window->setActive();
+
+		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+		// TODO
+		//drawOpenGL( window, lastInterval );
+
+		lastInterval = clock();
+
+		window->swapBuffer();
+	}
 }

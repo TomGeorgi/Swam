@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="src\kernel.cu">
+      <Filter>Code\src</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Code">
+      <UniqueIdentifier>{836e6432-a9fb-45a5-8150-5ac4c5ed02a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{a9eff86f-489c-45ea-b891-837c4d630ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\include">
+      <UniqueIdentifier>{74faf26a-32a5-47b6-892f-acb4f1881fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\src">
+      <UniqueIdentifier>{3c038183-0d9a-4642-bb4b-0bc672041849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{a7f363fc-44da-42c0-a523-d99db7144adc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\cuda_device.cpp">
+      <Filter>Code\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\swarm.cpp">
+      <Filter>Code\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vec3.cpp">
+      <Filter>Code\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertex_buffer.cpp">
+      <Filter>Code\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertex_array.cpp">
+      <Filter>Code\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer.cpp">
+      <Filter>Code\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\waypoint_list.cpp">
+      <Filter>Code\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\cuda_device.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cuda_device_array.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\macros.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vec3.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="include\renderer.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertex_array.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertex_buffer_layout.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertex_buffer.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\kernel.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\waypoint_list.h">
+      <Filter>Code\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="scripts\copyShader.bat">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="shader\fragment.glsl">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\vertex.glsl">
+      <Filter>Shader</Filter>
+    </None>
+  </ItemGroup>
+</Project>

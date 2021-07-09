@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -11,8 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CFF81BCD-6FFC-41C4-A867-4211668D682B}</ProjectGuid>
+    <ProjectGuid>{4D9F6A53-9D03-497C-9EF4-D32A1CB3BFBD}</ProjectGuid>
     <RootNamespace>Swarm</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -41,21 +42,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\Output\bin</OutDir>
+    <IntDir>$(SolutionDir)..\Output\obj\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);..\GLEW\include;..\GLFW\include;..\glm\include;..\Framework\include;include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart_static.lib;cudadevrt.lib;curand.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Framework.lib;GLFW.lib;GLEW.lib;glm.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(CudaToolkitLibDir);$(SolutionDir)..\Output\lib</AdditionalLibraryDirectories>
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
+      <GenerateRelocatableDeviceCode>true</GenerateRelocatableDeviceCode>
     </CudaCompile>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)shader\*" "$(SolutionDir)..\Output\bin\" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -77,16 +86,35 @@
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CudaCompile Include="kernel.cu" />
+    <CudaCompile Include="src\kernel.cu" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CudaDevice.cpp" />
-    <ClCompile Include="swarm.cpp" />
+    <ClCompile Include="src\cuda_device.cpp" />
+    <ClCompile Include="src\renderer.cpp" />
+    <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\swarm.cpp" />
+    <ClCompile Include="src\vec3.cpp" />
+    <ClCompile Include="src\vertex_array.cpp" />
+    <ClCompile Include="src\vertex_buffer.cpp" />
+    <ClCompile Include="src\waypoint_list.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CudaDevice.h" />
-    <ClInclude Include="kernel.cuh" />
-    <ClInclude Include="macros.h" />
+    <ClInclude Include="include\waypoint_list.h" />
+    <ClInclude Include="include\cuda_device.h" />
+    <ClInclude Include="include\cuda_device_array.h" />
+    <ClInclude Include="include\kernel.h" />
+    <ClInclude Include="include\macros.h" />
+    <ClInclude Include="include\renderer.h" />
+    <ClInclude Include="include\shader.h" />
+    <ClInclude Include="include\vec3.h" />
+    <ClInclude Include="include\vertex_array.h" />
+    <ClInclude Include="include\vertex_buffer.h" />
+    <ClInclude Include="include\vertex_buffer_layout.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="scripts\copyShader.bat" />
+    <None Include="shader\fragment.glsl" />
+    <None Include="shader\vertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
